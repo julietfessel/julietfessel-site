@@ -213,7 +213,7 @@ main {
   display: flex;
   gap: 6px;
   height: 100%;
-  animation: marquee 160s linear infinite;
+  animation: marquee 110s linear infinite;
   width: max-content;
 }
 
@@ -225,6 +225,8 @@ main {
   height: 100%;
   width: auto;
   flex-shrink: 0;
+  align-self: center;
+  image-orientation: from-image;
 }
 
 /* ─── PHOTO SLIDE VARIANTS ─── */
