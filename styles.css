@@ -213,7 +213,7 @@ main {
   display: flex;
   gap: 6px;
   height: 100%;
-  animation: marquee 80s linear infinite;
+  animation: marquee 160s linear infinite;
   width: max-content;
 }
 
