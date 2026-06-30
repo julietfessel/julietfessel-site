@@ -158,8 +158,8 @@ main {
   align-items: center;
   gap: 2rem;
   padding: 1rem 2.5rem;
-  background: var(--black);
-  border-bottom: 1px solid #222;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
 }
 
 .status-item {
@@ -182,7 +182,7 @@ main {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--white);
+  color: var(--black);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -199,7 +199,7 @@ main {
 .status-divider {
   width: 1px;
   height: 1.2rem;
-  background: #333;
+  background: var(--border);
 }
 
 /* ─── PHOTO MARQUEE ─── */
@@ -283,7 +283,7 @@ main {
 /* ─── PROJECT HIGHLIGHTS ROWS ─── */
 .credit-row {
   display: grid;
-  grid-template-columns: 1fr 180px 1fr;
+  grid-template-columns: 1fr 180px auto;
   align-items: baseline;
   gap: 1.5rem;
   padding: 0.55rem 0;
@@ -318,6 +318,7 @@ main {
   letter-spacing: 0.06em;
   color: var(--mid);
   text-align: right;
+  white-space: nowrap;
 }
 
 /* ─── NEW ENGEN BRAND GRID ─── */
@@ -346,6 +347,7 @@ main {
   text-transform: uppercase;
   color: var(--terracotta);
   text-align: left;
+  white-space: nowrap;
 }
 
 /* ─── CONTACT SECTION ─── */
@@ -1045,46 +1047,47 @@ footer {
   color: var(--black);
 }
 
-/* ─── PHOTOGRAPHY GALLERY ─── */
-.photo-cat-nav .status-item {
-  cursor: pointer;
+/* ─── PHOTOGRAPHY PAGE ─── */
+.hero.photo-hero {
+  grid-template-columns: 1fr;
+  padding-bottom: 2.5rem;
 }
 
-.cat-link {
-  text-decoration: none;
-}
-
-.cat-link .status-value {
-  color: var(--black);
-  transition: color 0.15s;
-}
-
-.cat-link:hover .status-value {
-  color: var(--terracotta);
-}
-
-.photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 280px;
-  gap: 4px;
+/* ─── PHOTO GALLERY HORIZONTAL SCROLL ─── */
+.photo-gallery-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 5px;
+  height: 520px;
   border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem 0 2.5rem;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
 }
 
-.gallery-item {
-  width: 100%;
+.photo-gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-gallery-scroll:active {
+  cursor: grabbing;
+}
+
+.photo-gallery-scroll .gallery-item {
+  flex-shrink: 0;
+  width: 300px;
   height: 100%;
   object-fit: cover;
-  cursor: pointer;
   transition: opacity 0.2s;
 }
 
-.gallery-item:hover {
+.photo-gallery-scroll .gallery-item:hover {
   opacity: 0.85;
 }
 
-.gallery-item.tall {
-  grid-row: span 2;
+.photo-gallery-scroll .gallery-item.wide {
+  width: 460px;
 }
 
 /* ─── RESPONSIVE ─── */
