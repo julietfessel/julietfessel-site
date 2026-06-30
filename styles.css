@@ -1022,10 +1022,6 @@ footer {
   text-align: right;
 }
 
-/* ─── PHOTO SLIDE VARIANTS ─── */
-.photo-slide.portrait { width: 200px; }
-.photo-slide.landscape { width: 500px; }
-
 /* ─── ACTING CREDITS — NETWORK COLUMN ─── */
 .acting-credit-row.with-network {
   grid-template-columns: 220px 160px minmax(0, 1fr) auto;
