@@ -222,11 +222,10 @@ main {
 }
 
 .photo-slide {
-  height: 100%;
+  height: 260px;
   width: auto;
   flex-shrink: 0;
-  align-self: center;
-  image-orientation: from-image;
+  display: block;
 }
 
 /* ─── PHOTO SLIDE VARIANTS ─── */
