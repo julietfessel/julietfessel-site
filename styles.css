@@ -213,7 +213,7 @@ main {
   display: flex;
   gap: 6px;
   height: 100%;
-  animation: marquee 28s linear infinite;
+  animation: marquee 80s linear infinite;
   width: max-content;
 }
 
@@ -222,10 +222,29 @@ main {
 }
 
 .photo-slide {
-  width: 380px;
   height: 100%;
+  width: auto;
   flex-shrink: 0;
+}
+
+/* ─── PHOTO SLIDE VARIANTS ─── */
+.photo-slide.portrait { width: auto; }
+.photo-slide.landscape { width: auto; }
+
+/* ─── HEADSHOT GALLERY ─── */
+.headshot-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  padding: 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.headshot-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  display: block;
 }
 
 /* ─── CREDITS DROPDOWN ─── */
