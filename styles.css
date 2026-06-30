@@ -158,7 +158,8 @@ main {
   align-items: center;
   gap: 2rem;
   padding: 1rem 2.5rem;
-  border-bottom: 1px solid var(--border);
+  background: var(--black);
+  border-bottom: 1px solid #222;
 }
 
 .status-item {
@@ -173,7 +174,7 @@ main {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--mid);
+  color: #555;
 }
 
 .status-value {
@@ -181,7 +182,7 @@ main {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--black);
+  color: var(--white);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -198,7 +199,7 @@ main {
 .status-divider {
   width: 1px;
   height: 1.2rem;
-  background: var(--border);
+  background: #333;
 }
 
 /* ─── PHOTO MARQUEE ─── */
@@ -300,6 +301,17 @@ main {
   color: var(--black);
 }
 
+.credit-link {
+  color: inherit;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.credit-link:hover {
+  color: var(--terracotta);
+  border-color: var(--terracotta);
+}
+
 .credit-roles {
   font-family: 'Space Mono', monospace;
   font-size: 0.62rem;
@@ -333,7 +345,7 @@ main {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--terracotta);
-  text-align: center;
+  text-align: left;
 }
 
 /* ─── CONTACT SECTION ─── */
