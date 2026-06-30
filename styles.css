@@ -282,9 +282,9 @@ main {
 /* ─── PROJECT HIGHLIGHTS ROWS ─── */
 .credit-row {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr 180px 1fr;
   align-items: baseline;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 0.55rem 0;
   border-bottom: 1px solid var(--border);
   font-size: 0.82rem;
