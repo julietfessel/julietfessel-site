@@ -992,6 +992,25 @@ footer {
   text-align: right;
 }
 
+/* ─── PHOTO SLIDE VARIANTS ─── */
+.photo-slide.portrait { width: 200px; }
+.photo-slide.landscape { width: 500px; }
+
+/* ─── ACTING CREDITS — NETWORK COLUMN ─── */
+.acting-credit-row.with-network {
+  grid-template-columns: 1fr auto auto auto;
+}
+
+.ac-network {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--terracotta);
+  white-space: nowrap;
+  text-align: right;
+}
+
 /* ─── TRAINING & SKILLS ─── */
 .training-grid {
   display: grid;
@@ -1051,6 +1070,7 @@ footer {
 .hero.photo-hero {
   grid-template-columns: 1fr;
   padding-bottom: 2.5rem;
+  border-bottom: none;
 }
 
 /* ─── PHOTO GALLERY HORIZONTAL SCROLL ─── */
