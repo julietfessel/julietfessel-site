@@ -1396,13 +1396,14 @@ footer {
     grid-template-columns: 1fr;
   }
   .role-card + .role-card {
-    border-top: 2px solid var(--sand);
+    border-top: 3px solid var(--black);
     margin-top: 0.5rem;
+    padding-top: 0.25rem;
   }
   .role-meta {
     border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 1.25rem;
+    border-bottom: none;
+    padding: 1.5rem 1.25rem 0.5rem;
   }
   .role-body {
     padding: 1.5rem 1.25rem;
@@ -1415,9 +1416,9 @@ footer {
     padding: 0.65rem 0;
     align-items: start;
   }
-  .credit-project { grid-column: 1; grid-row: 1; }
-  .credit-studio { grid-column: 2; grid-row: 1; text-align: right; max-width: 130px; white-space: normal; }
-  .credit-roles { grid-column: 1 / -1; grid-row: 2; text-align: left; }
+  .credit-project { grid-column: 1; grid-row: 1; white-space: normal; overflow: visible; text-overflow: clip; }
+  .credit-studio { grid-column: 2; grid-row: 1; text-align: right; max-width: 40%; white-space: normal !important; font-size: 0.5rem; }
+  .credit-roles { grid-column: 1 / -1; grid-row: 2; text-align: left; white-space: normal; overflow: visible; text-overflow: clip; }
   .credit-row-sub {
     padding-left: 0.875rem;
   }
@@ -1506,26 +1507,28 @@ footer {
     grid-template-columns: 1fr auto;
     gap: 0.15rem 0.5rem;
     padding: 0.5rem 0;
-    align-items: baseline;
+    align-items: start;
   }
   .acting-credit-row .ac-title { grid-column: 1 / -1; grid-row: 1; font-size: 0.82rem; }
-  .acting-credit-row .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; }
+  .acting-credit-row .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; text-align: left; }
   .acting-credit-row .ac-year { grid-column: 2; grid-row: 2; text-align: right; font-size: 0.6rem; }
 
   .acting-credit-row.with-network {
     grid-template-columns: 1fr auto;
+    align-items: start;
   }
   .acting-credit-row.with-network .ac-title { grid-column: 1; grid-row: 1; font-size: 0.82rem; }
   .acting-credit-row.with-network .ac-network { grid-column: 2; grid-row: 1; text-align: right; font-size: 0.58rem; }
-  .acting-credit-row.with-network .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; }
+  .acting-credit-row.with-network .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; text-align: left; }
   .acting-credit-row.with-network .ac-year { grid-column: 2; grid-row: 2; text-align: right; font-size: 0.6rem; }
 
   .acting-credit-row.with-channel {
     grid-template-columns: 1fr auto;
+    align-items: start;
   }
   .acting-credit-row.with-channel .ac-title { grid-column: 1; grid-row: 1; font-size: 0.82rem; }
   .acting-credit-row.with-channel .ac-channel { grid-column: 2; grid-row: 1; text-align: right; font-size: 0.58rem; white-space: normal; }
-  .acting-credit-row.with-channel .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; }
+  .acting-credit-row.with-channel .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; text-align: left; }
   .acting-credit-row.with-channel .ac-year { grid-column: 2; grid-row: 2; text-align: right; font-size: 0.6rem; }
 
   /* MUSIC VIDEO GRID */
