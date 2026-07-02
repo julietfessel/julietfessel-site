@@ -297,9 +297,7 @@ main {
 
 /* ─── CREDITS OPEN (always-visible) ─── */
 .credits-open {
-  margin-top: 1.25rem;
-  border-top: 1px solid var(--border);
-  padding-top: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .credits-open-label {
@@ -464,6 +462,10 @@ a.credit-umbrella-name:hover {
 .credits-grid-brands a:hover {
   border-color: var(--terracotta);
   color: var(--terracotta);
+}
+
+.credit-year {
+  display: inline;
 }
 
 /* ─── STUDIO COLUMN ─── */
@@ -1394,6 +1396,7 @@ footer {
   /* ROLE CARDS */
   .role-card {
     grid-template-columns: 1fr;
+    border-bottom: none;
   }
   .role-card + .role-card {
     border-top: 3px solid var(--black);
@@ -1417,8 +1420,9 @@ footer {
     align-items: start;
   }
   .credit-project { grid-column: 1; grid-row: 1; white-space: normal; overflow: visible; text-overflow: clip; }
-  .credit-studio { grid-column: 2; grid-row: 1; text-align: right; max-width: 40%; white-space: normal !important; font-size: 0.5rem; }
-  .credit-roles { grid-column: 1 / -1; grid-row: 2; text-align: left; white-space: normal; overflow: visible; text-overflow: clip; }
+  .credit-studio { grid-column: 2; grid-row: 1; text-align: right; white-space: nowrap; font-size: 0.44rem; }
+  .credit-roles { grid-column: 1 / -1; grid-row: 2; text-align: left; white-space: normal; overflow: visible; text-overflow: clip; display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+  .credit-year { flex-shrink: 0; }
   .credit-row-sub {
     padding-left: 0.875rem;
   }
