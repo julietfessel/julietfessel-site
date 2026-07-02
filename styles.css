@@ -49,8 +49,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 2.5rem;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
+  background: var(--black);
+  border-bottom: 1px solid #222;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 .nav-logo {
@@ -59,6 +65,24 @@ nav {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: var(--white);
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  color: var(--mid);
+  transition: color 0.15s;
+}
+
+.nav-icon:hover {
+  color: var(--white);
 }
 
 .nav-links {
@@ -72,7 +96,12 @@ nav {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--white);
   transition: color 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--mid);
 }
 
 .nav-links a.active {
@@ -248,49 +277,112 @@ main {
   display: block;
 }
 
-/* ─── CREDITS DROPDOWN ─── */
+/* ─── CREDITS DROPDOWN (legacy, kept for compat) ─── */
 .credits-dropdown {
   margin-top: 1.25rem;
   border-top: 1px solid var(--border);
   padding-top: 0.75rem;
 }
 
-.credits-dropdown summary {
+.credits-dropdown-body {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── CREDITS OPEN (always-visible) ─── */
+.credits-open {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+.credits-open-label {
   font-family: 'Space Mono', monospace;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--mid);
-  cursor: pointer;
-  list-style: none;
+  margin-bottom: 0.75rem;
+}
+
+/* ─── CREDIT UMBRELLA (sub-section header within credits) ─── */
+.credit-umbrella-header {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.15s;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.5rem 0 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-top: 0.5rem;
 }
 
-.credits-dropdown summary::-webkit-details-marker { display: none; }
-
-.credits-dropdown summary::after {
-  content: '+';
+.credit-umbrella-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--terracotta);
-  font-size: 0.9rem;
-  line-height: 1;
+  transition: opacity 0.15s;
 }
 
-.credits-dropdown[open] summary::after {
-  content: '−';
+a.credit-umbrella-name {
+  border-bottom: 1px solid var(--terracotta);
+  padding-bottom: 1px;
 }
 
-.credits-dropdown summary:hover {
+a.credit-umbrella-name:hover {
+  opacity: 0.7;
   color: var(--terracotta);
 }
 
-.credits-dropdown-body {
-  margin-top: 0.75rem;
+.credit-umbrella-desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--mid);
+  letter-spacing: 0.06em;
+}
+
+.credit-row-sub {
+  padding-left: 2.5rem;
+}
+
+/* ─── DEMO REEL — SOLO CENTERED ─── */
+.reel-solo {
+  padding: 2.5rem;
+  border-bottom: 1px solid var(--border);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+
+.reel-solo-inner {
+  width: 66.666%;
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+}
+
+.reel-solo-inner iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ─── TRAINING + SKILLS BOTTOM SECTION ─── */
+.training-skills-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.training-skills-bottom .training-col-inner {
+  padding: 2.5rem;
+  border-right: 1px solid var(--border);
+}
+
+.training-skills-bottom .training-col-inner:last-child {
+  border-right: none;
 }
 
 /* ─── ROLE SUMMARY ─── */
@@ -353,25 +445,32 @@ main {
   padding-top: 0.25rem;
 }
 
-.credits-grid-brands span {
+.credits-grid-brands span,
+.credits-grid-brands a {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   border: 1px solid var(--border);
   padding: 0.4rem 0.9rem;
   color: var(--black);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.credits-grid-brands a:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
 }
 
 /* ─── STUDIO COLUMN ─── */
 .credit-studio {
   font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--terracotta);
   text-align: left;
-  white-space: nowrap;
+  line-height: 1.4;
 }
 
 /* ─── CONTACT SECTION ─── */
@@ -860,7 +959,10 @@ footer {
 }
 
 .mv-artist {
-  font-weight: 600;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--terracotta);
 }
 
@@ -1037,6 +1139,21 @@ footer {
   text-align: left;
 }
 
+/* ─── ACTING CREDITS — CHANNEL COLUMN (viral) ─── */
+.acting-credit-row.with-channel {
+  grid-template-columns: 220px 230px minmax(0, 1fr) auto;
+}
+
+.ac-channel {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--terracotta);
+  white-space: nowrap;
+  text-align: left;
+}
+
 /* ─── TRAINING & SKILLS ─── */
 .training-grid {
   display: grid;
@@ -1092,6 +1209,49 @@ footer {
   color: var(--black);
 }
 
+/* ─── YOUTUBE PAIR ─── */
+.reel-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 340px;
+  border-bottom: 1px solid var(--border);
+}
+
+.reel-pair-item {
+  position: relative;
+  background: var(--black);
+  border-right: 1px solid #222;
+}
+
+.reel-pair-item:last-child {
+  border-right: none;
+}
+
+.reel-pair-item iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── CONTACT ICONS ─── */
+.contact-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  color: #666;
+  transition: color 0.15s;
+}
+
+.contact-icon:hover {
+  color: var(--white);
+}
+
 /* ─── PHOTOGRAPHY PAGE ─── */
 .hero.photo-hero {
   grid-template-columns: 1fr;
@@ -1138,60 +1298,268 @@ footer {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
+
+  /* NAV */
   nav {
-    padding: 1rem 1.25rem;
+    padding: 0.875rem 1.25rem;
+    gap: 0.75rem;
+  }
+  .nav-left {
+    gap: 0.875rem;
+  }
+  .nav-logo {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+  .nav-icons {
+    gap: 0.6rem;
+  }
+  .nav-links {
+    gap: 1.25rem;
+  }
+  .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
   }
 
+  /* PAGE OFFSET */
+  main {
+    padding-top: 56px;
+  }
+
+  /* HERO */
   .hero {
     grid-template-columns: 1fr;
-    padding: 3rem 1.25rem 2rem;
+    padding: 2.5rem 1.25rem 2rem;
+    gap: 2rem;
   }
-
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .stat:nth-child(2) {
-    border-right: none;
-  }
-
-  .stat:nth-child(3) {
+  .hero-right {
+    border-left: none;
     border-top: 1px solid var(--border);
-    border-right: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+  }
+  .hero-headline {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
   }
 
-  .stat:nth-child(4) {
-    border-top: 1px solid var(--border);
+  /* STATUS STRIP */
+  .status-strip {
+    flex-wrap: wrap;
+    gap: 0.6rem 1.25rem;
+    padding: 0.875rem 1.25rem;
   }
 
+  /* PHOTO MARQUEE */
+  .photo-marquee-wrap {
+    height: 180px;
+  }
+  .photo-slide {
+    height: 180px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    padding: 1.5rem 1.25rem 1rem;
+  }
+
+  /* ROLE CARDS */
   .role-card {
     grid-template-columns: 1fr;
   }
-
   .role-meta {
     border-right: none;
     border-bottom: 1px solid var(--border);
     padding: 1.5rem 1.25rem;
   }
-
   .role-body {
     padding: 1.5rem 1.25rem;
   }
 
-  .section-header {
-    padding: 1.5rem 1.25rem 1rem;
+  /* CREDIT ROWS (production page freelance) */
+  .credit-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    padding: 0.75rem 0;
+  }
+  .credit-row-sub {
+    padding-left: 0.875rem;
+  }
+  .credit-roles {
+    text-align: left;
+  }
+  .credit-umbrella-header {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.75rem 0 0.4rem;
   }
 
+  /* NEW ENGEN BRAND GRID */
+  .credits-grid-brands {
+    gap: 0.4rem;
+  }
+  .credits-grid-brands span {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* YOUTUBE PAIR */
+  .reel-pair {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .reel-pair-item {
+    height: 210px;
+    border-right: none;
+    border-bottom: 1px solid #222;
+  }
+  .reel-pair-item:last-child {
+    border-bottom: none;
+  }
+
+  /* ACTING — SIZES BAR */
+  .sizes-bar {
+    padding: 1rem 1.25rem;
+    gap: 0.875rem 1.25rem;
+  }
+  .size-divider {
+    height: 1.5rem;
+  }
+
+  /* ACTING — REEL / TRAINING SPLIT */
+  .reel-training-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .reel-half {
+    height: 220px;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .training-half {
+    padding: 1.5rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  /* ACTING — REPRESENTATION */
+  .rep-section {
+    grid-template-columns: 1fr;
+  }
+  .rep-panel {
+    border-right: none;
+    border-bottom: 1px solid #222;
+    padding: 1.75rem 1.25rem;
+  }
+  .rep-panel:last-child {
+    border-bottom: none;
+  }
+
+  /* ACTING — CREDITS */
+  .credit-category {
+    grid-template-columns: 1fr;
+  }
+  .credit-category-label {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0.875rem 1.25rem;
+  }
+  .credit-category-body {
+    padding: 0.75rem 1.25rem;
+  }
+  .acting-credit-row,
+  .acting-credit-row.with-network,
+  .acting-credit-row.with-channel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 0.75rem;
+    padding: 0.5rem 0;
+  }
+  .ac-channel {
+    font-size: 0.58rem;
+    flex-shrink: 0;
+    white-space: normal;
+  }
+  .ac-title {
+    flex: 1;
+    min-width: 55%;
+    font-size: 0.82rem;
+  }
+  .ac-year {
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .ac-network {
+    font-size: 0.58rem;
+    flex-shrink: 0;
+  }
+  .ac-role {
+    width: 100%;
+    text-align: left;
+    font-size: 0.6rem;
+  }
+
+  /* MUSIC VIDEO GRID */
+  .mv-grid {
+    grid-template-columns: 1fr;
+  }
+  .mv-item:nth-child(odd) {
+    padding-right: 0;
+    border-right: none;
+  }
+  .mv-item:nth-child(even) {
+    padding-left: 0;
+  }
+
+  /* REEL SOLO */
+  .reel-solo {
+    padding: 1.5rem 1.25rem;
+  }
+  .reel-solo-inner {
+    width: 100%;
+  }
+
+  /* TRAINING + SKILLS BOTTOM */
+  .training-skills-bottom {
+    grid-template-columns: 1fr;
+  }
+  .training-skills-bottom .training-col-inner {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .training-skills-bottom .training-col-inner:last-child {
+    border-bottom: none;
+  }
+
+  /* PHOTOGRAPHY GALLERIES */
+  .photo-gallery-scroll {
+    height: 300px;
+    padding: 0 1.25rem;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    padding: 2rem 1.25rem;
+  }
+  .contact-card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  /* MISC */
   .credits {
     padding: 1.5rem 1.25rem;
   }
-
   .credits-grid {
     grid-template-columns: 1fr;
+  }
+  .hero.photo-hero {
+    padding: 2rem 1.25rem;
   }
 
   footer {
@@ -1199,5 +1567,25 @@ footer {
     gap: 1rem;
     padding: 1.25rem;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.875rem 1.25rem;
+  }
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .nav-links {
+    gap: 1.5rem;
+    padding-bottom: 0.125rem;
+  }
+  main {
+    padding-top: 80px;
   }
 }
