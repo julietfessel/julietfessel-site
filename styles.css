@@ -61,7 +61,7 @@ nav {
 
 .nav-logo {
   font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -83,6 +83,11 @@ nav {
 
 .nav-icon:hover {
   color: var(--white);
+}
+
+.nav-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .nav-links {
@@ -1252,6 +1257,11 @@ footer {
   color: var(--white);
 }
 
+.contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
 /* ─── PHOTOGRAPHY PAGE ─── */
 .hero.photo-hero {
   grid-template-columns: 1fr;
@@ -1308,7 +1318,7 @@ footer {
     gap: 0.875rem;
   }
   .nav-logo {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     letter-spacing: 0.1em;
   }
   .nav-icons {
@@ -1340,10 +1350,25 @@ footer {
     padding-top: 1.5rem;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1.25rem 2rem;
+    gap: 0.5rem 0.75rem;
+  }
+  .hero-stat {
+    flex: 1 1 20%;
+    min-width: 0;
+  }
+  .hero-stat-number {
+    font-size: 0.95rem;
+  }
+  .hero-stat-label {
+    font-size: 0.48rem;
+    max-width: none;
+    line-height: 1.3;
   }
   .hero-headline {
     font-size: clamp(2.2rem, 9vw, 3.5rem);
+  }
+  .hero-headline br {
+    display: none;
   }
 
   /* STATUS STRIP */
@@ -1370,6 +1395,10 @@ footer {
   .role-card {
     grid-template-columns: 1fr;
   }
+  .role-card + .role-card {
+    border-top: 2px solid var(--sand);
+    margin-top: 0.5rem;
+  }
   .role-meta {
     border-right: none;
     border-bottom: 1px solid var(--border);
@@ -1381,15 +1410,16 @@ footer {
 
   /* CREDIT ROWS (production page freelance) */
   .credit-row {
-    grid-template-columns: 1fr;
-    gap: 0.2rem;
-    padding: 0.75rem 0;
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 0.5rem;
+    padding: 0.65rem 0;
+    align-items: start;
   }
+  .credit-project { grid-column: 1; grid-row: 1; }
+  .credit-studio { grid-column: 2; grid-row: 1; text-align: right; max-width: 130px; white-space: normal; }
+  .credit-roles { grid-column: 1 / -1; grid-row: 2; text-align: left; }
   .credit-row-sub {
     padding-left: 0.875rem;
-  }
-  .credit-roles {
-    text-align: left;
   }
   .credit-umbrella-header {
     flex-wrap: wrap;
@@ -1470,37 +1500,33 @@ footer {
   .credit-category-body {
     padding: 0.75rem 1.25rem;
   }
-  .acting-credit-row,
-  .acting-credit-row.with-network,
-  .acting-credit-row.with-channel {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.1rem 0.75rem;
+  /* ACTING CREDIT ROWS — grid layout on mobile */
+  .acting-credit-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 0.5rem;
     padding: 0.5rem 0;
+    align-items: baseline;
   }
-  .ac-channel {
-    font-size: 0.58rem;
-    flex-shrink: 0;
-    white-space: normal;
+  .acting-credit-row .ac-title { grid-column: 1 / -1; grid-row: 1; font-size: 0.82rem; }
+  .acting-credit-row .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; }
+  .acting-credit-row .ac-year { grid-column: 2; grid-row: 2; text-align: right; font-size: 0.6rem; }
+
+  .acting-credit-row.with-network {
+    grid-template-columns: 1fr auto;
   }
-  .ac-title {
-    flex: 1;
-    min-width: 55%;
-    font-size: 0.82rem;
+  .acting-credit-row.with-network .ac-title { grid-column: 1; grid-row: 1; font-size: 0.82rem; }
+  .acting-credit-row.with-network .ac-network { grid-column: 2; grid-row: 1; text-align: right; font-size: 0.58rem; }
+  .acting-credit-row.with-network .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; }
+  .acting-credit-row.with-network .ac-year { grid-column: 2; grid-row: 2; text-align: right; font-size: 0.6rem; }
+
+  .acting-credit-row.with-channel {
+    grid-template-columns: 1fr auto;
   }
-  .ac-year {
-    flex-shrink: 0;
-    text-align: right;
-  }
-  .ac-network {
-    font-size: 0.58rem;
-    flex-shrink: 0;
-  }
-  .ac-role {
-    width: 100%;
-    text-align: left;
-    font-size: 0.6rem;
-  }
+  .acting-credit-row.with-channel .ac-title { grid-column: 1; grid-row: 1; font-size: 0.82rem; }
+  .acting-credit-row.with-channel .ac-channel { grid-column: 2; grid-row: 1; text-align: right; font-size: 0.58rem; white-space: normal; }
+  .acting-credit-row.with-channel .ac-role { grid-column: 1; grid-row: 2; font-size: 0.6rem; }
+  .acting-credit-row.with-channel .ac-year { grid-column: 2; grid-row: 2; text-align: right; font-size: 0.6rem; }
 
   /* MUSIC VIDEO GRID */
   .mv-grid {
